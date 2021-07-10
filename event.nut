@@ -3,10 +3,11 @@
 //목적 : 같은 틱에서 다수의 이벤트가 실행될시 이벤트 데이터가 덮어씌워지는 오류 수정
 //
 //어떻게 사용하는가?
-//1. Event_Data에 사용할 이벤트 리스너 타겟네임을 넣어둔다.
-//2. 이벤트 리스너의 아웃풋에 인수로 있던 event_data를 빈칸으로 바꾼다. ex. OnEventFired:listen_disconnect:RunScriptCode:PlayerDisconnect(event_data):0.00:0
-//													-> OnEventFired:listen_disconnect:RunScriptCode:PlayerDisconnect():0.00:0
-//3. 이벤트 리스너에서 사용되던 함수를 변형시킨다.
+//1. logic_script 엔티티의 스크립트에 event.nut 을 넣고 EntityGroup에 등록할 logic_eventlistener 엔티티들의 이름을 각각 넣어둔다.
+//2. Event_Data에 EntityGroup에 등록한 logic_eventlistener 타겟네임을 넣어둔다.
+//3. logic_eventlistener의 아웃풋에 인수로 있던 event_data를 빈칸으로 바꾼다. ex. OnEventFired:listen_disconnect:RunScriptCode:PlayerDisconnect(event_data):0.00:0
+//								-> OnEventFired:listen_disconnect:RunScriptCode:PlayerDisconnect():0.00:0
+//4. logic_eventlistener에서 사용되던 함수를 변형시킨다.
 //예시1
 /*
 ::PlayerDisconnect <- function(event){ // Remove UserID index from Players when player disconnects
