@@ -1,1 +1,1 @@
-"# some scripts for csgo I made." 
+"# some scripts for csgo I got" 
